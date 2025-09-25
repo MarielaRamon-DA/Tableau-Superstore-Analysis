@@ -23,20 +23,20 @@ This project includes the following interactive Tableau visualizations, designed
 ## 📋 Project Specifications
 
 1.  **Data Preparation**
-The original database was clean, with all data preparation performed in Google Sheets. A new field, IsReturned, was added by cross-referencing returned items from a separate sheet. To ensure an accurate representation of revenue, the Net Sales field was calculated to represent the final revenue after subtracting both returns and any dollar discounts. The Order Date field was split into separate fields for analysis. The prepared data was then connected directly to Tableau for visualization.
+    * The original database was clean, with all data preparation performed in Google Sheets. A new field, IsReturned, was added by cross-referencing returned items from a separate    sheet. To ensure an accurate representation of revenue, the Net Sales field was calculated to represent the final revenue after subtracting both returns and any dollar discounts. The Order Date field was split into separate fields for analysis. The prepared data was then connected directly to Tableau for visualization.
 
-Due to the lack of specific cost measures in the database, such as cost of shipment or storage, a general term for **COGS** was used. For this analysis, COGS was inferred directly from the available data by subtracting profit from Net Sales, as returns and discounts were analyzed separately in the Critical Divergence Profit-Net Sales Dashboard for November and December of 2014.
+    * Due to the lack of specific cost measures in the database, such as cost of shipment or storage, a general term for **COGS** was used in the **Critical Divergence Profit-Net Sales Dashboard for November and December of 2014**. For this analysis, COGS was inferred directly from the available data by subtracting profit from Net Sales, as returns and discounts were analyzed separately.
 
-3.  **RFM Analysis Ranges**
-The RFM value ranges (High, Medium, Low) were determined by dividing customers into three groups based on the middle points between quartiles, reflecting the distribution of the data.
+2.  **RFM Analysis Ranges**
+    * **The RFM value ranges (High, Medium, Low)** were determined by dividing customers into three groups based on the middle points between quartiles, reflecting the distribution of the data.
 
-For each case of the **RFM analysis**, the following measures were used for the quartile calculations:
+    * For each case of the **RFM analysis**, the following measures were used for the quartile calculations:
 
-**Recency**: The number of days since a customer's last purchase.
+         **Recency**: The number of days since a customer's last purchase.
 
-**Frequency**: The total number of orders a customer has made.
+         **Frequency**: The total number of orders a customer has made.
 
-**Monetary Value**: The total profit generated from a customer's purchases.
+         **Monetary Value**: The total profit generated from a customer's purchases.
 
 3.  **Hotkeys**
 **Ctrl + R** (Windows/Linux) or **Cmd + R** (Mac): Restores all filters to their default state.
