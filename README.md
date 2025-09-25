@@ -4,7 +4,7 @@
 
 This repository showcases a comprehensive Business Intelligence project developed using Tableau, centered on the foundational Superstore dataset. The goal is to transform raw sales data into actionable insights for strategic decision-making, focusing on performance, profitability, and customer behavior.
 
-## 📊 Key Dashboards & Story
+## 📊 Project Design
 
 This project includes the following interactive Tableau visualizations, designed for various business stakeholders:
 
@@ -16,9 +16,17 @@ This project includes the following interactive Tableau visualizations, designed
     * **Description:** This dashboard provides an in-depth exploration of customer behavior and value, primarily **intended for Marketing Department stakeholders**. It features **RFM (Recency, Frequency, Monetary) analysis** to segment customers, revealing their purchasing patterns, engagement levels, and overall profitability. This allows for the development of targeted marketing campaigns, customer retention strategies, and identification of high-value segments.
     * **View Live on Tableau Public:** [(https://public.tableau.com/views/CustomerRFMAnalysisDashboard/CustomerRFMAnalysis?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)]
 
-3.  **Superstore Data Story:**
-    * **Description:** An interactive narrative guiding users through key findings and insights derived from the Superstore data, connecting various visualizations into a cohesive story of business performance.
-    * **View Live on Tableau Public:** [(https://public.tableau.com/shared/8BYHQH9TX?:display_count=n&:origin=viz_share_link)]
+3. ### Superstore Data Story
+**Description:** An interactive narrative that guides users through a multi-layered analytical design, shifting **from high-level performance to granular detail**. The story is structured around four core analytical pillars:
+
+* **Hierarchical Performance Decomposition:** Establishing **Sales & Profit trends** across **Location and Product hierarchies**.
+* **Root Cause Analysis & Profitability Assessment:** A deep-dive into underperformance patterns linked to **different views combination** and  **Customer Satisfaction**.
+* **Interactive Customer Strategy & Segment Analysis:** Utilizing key metrics (**Profit Margin, Discount, Returns**), Customer Performance KPI's, and scenarios (**Location, Product**) to measure segment performance and determine **Customer Expansion**.
+* **Revenue Efficiency & Financial Health Assessment:** The final assessment of operational efficiency and financial health.
+  
+The narrative culminates in a summary of **Key Insights** derived from these analytical pillars, providing actionable, data-driven **Recommendations** for strategic business impact.
+
+   * **View Live on Tableau Public:** [View Live](https://public.tableau.com/views/SuperstorePerformanceAnalysis_17562391489100/SuperstorePerformanceAnalysis?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
     
 ## 📋 Project Specifications
 
@@ -48,18 +56,10 @@ This project includes the following interactive Tableau visualizations, designed
 * **Data Source:** Superstore Sample Dataset (included with Tableau)
 * **Version Control:** Git / GitHub
 
-## 💡 Key Insights (Optional - you can expand on your findings here)
-
-* Identified a critical divergence between sales growth and profit margins in specific periods (e.g., Nov-Dec 2014).
-* Pinpointed sub-categories and product segments contributing most significantly to profit erosion.
-* Analyzed the impact of discount strategies and return rates on overall profitability.
 
 ## 📧 Connect with Me
 
-* **Tableau Public Profile:** [Link to your Tableau Public Profile]
-* **LinkedIn:** [Link to your LinkedIn Profile]
-* **Email:** [Your Email Address]
+* **Tableau Public Profile:** [(https://public.tableau.com/app/profile/mariela.ramon.corria)]
+* **LinkedIn:** [www.linkedin.com/in/mariela-ramon-6b368732b]
+* **Email:** [marielaramon7107@gmail.com]
 
-## © License
-
-[Optional: e.g., MIT License if you want to allow others to use your code/files, or state "All Rights Reserved" if you prefer.]
