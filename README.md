@@ -10,23 +10,25 @@ This project includes the following interactive Tableau visualizations, designed
 
 1.  **Net Sales & Profit Performance Overview Dashboard:**
     * **Description:** This high-level executive dashboard offers a comprehensive view of `Net Sales` and `Profit` performance. It presents **diverse trend charts, including forecasting scenarios**, analyzed across **State Level, Product Category, and Sub-Category**. Primarily **oriented towards Sales Department stakeholders**, it serves as an instrument to **show and explore the critical divergence between sales growth and profitability specifically observed in November-December 2014**, providing a clear overview for strategic discussions.
-    * **View Live on Tableau Public:** [(https://public.tableau.com/views/Superstore_DashboardNetSalesandProfitPerformance/NetSalesProfitPerformanceOverview?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)]
+      
+    * **View Live on Tableau Public:** [View Live](https://public.tableau.com/views/Superstore_DashboardNetSalesandProfitPerformance/NetSalesProfitPerformanceOverview?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
           
 2.  **Customer Performance Dashboard:**
     * **Description:** This dashboard provides an in-depth exploration of customer behavior and value, primarily **intended for Marketing Department stakeholders**. It features **RFM (Recency, Frequency, Monetary) analysis** to segment customers, revealing their purchasing patterns, engagement levels, and overall profitability. This allows for the development of targeted marketing campaigns, customer retention strategies, and identification of high-value segments.
-    * **View Live on Tableau Public:** [(https://public.tableau.com/views/CustomerRFMAnalysisDashboard/CustomerRFMAnalysis?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)]
+      
+    * **View Live on Tableau Public:** [View Live](https://public.tableau.com/views/CustomerRFMAnalysisDashboard/CustomerRFMAnalysis?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-3. ### Superstore Data Story
-**Description:** An interactive narrative that guides users through a multi-layered analytical design, shifting **from high-level performance to granular detail**. The story is structured around four core analytical pillars:
+3.   **Superstore Data Story**
+     * **Description:** An interactive narrative that guides users through a multi-layered analytical design, shifting **from high-level performance to granular detail**. The story is structured around four core analytical pillars:
 
-* **Hierarchical Performance Decomposition:** Establishing **Sales & Profit trends** across **Location and Product hierarchies**.
-* **Root Cause Analysis & Profitability Assessment:** A deep-dive into underperformance patterns linked to **different views combination** and  **Customer Satisfaction**.
-* **Interactive Customer Strategy & Segment Analysis:** Utilizing key metrics (**Profit Margin, Discount, Returns**), Customer Performance KPI's, and scenarios (**Location, Product**) to measure segment performance and determine **Customer Expansion**.
-* **Revenue Efficiency & Financial Health Assessment:** The final assessment of operational efficiency and financial health.
+         * **Hierarchical Performance Decomposition:** Establishing **Sales & Profit trends** across **Location and Product hierarchies**.
+         * **Root Cause Analysis & Profitability Assessment:** A deep-dive into underperformance patterns linked to **different views combination** and  **Customer Satisfaction**.
+         * **Interactive Customer Strategy & Segment Analysis:** Utilizing key metrics (**Profit Margin, Discount, Returns**), Customer Performance KPI's, and scenarios (**Location, Product**) to measure segment performance and determine **Customer Expansion**.
+         * **Revenue Efficiency & Financial Health Assessment:** The final assessment of operational efficiency and financial health.
   
-The narrative culminates in a summary of **Key Insights** derived from these analytical pillars, providing actionable, data-driven **Recommendations** for strategic business impact.
+      * The narrative culminates in a summary of **Key Insights** derived from these analytical pillars, providing actionable, data-driven **Recommendations** for strategic business impact.
 
-   * **View Live on Tableau Public:** [View Live](https://public.tableau.com/views/SuperstorePerformanceAnalysis_17562391489100/SuperstorePerformanceAnalysis?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+      * **View Live on Tableau Public:** [View Live](https://public.tableau.com/views/SuperstorePerformanceAnalysis_17562391489100/SuperstorePerformanceAnalysis?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
     
 ## 📋 Project Specifications
 
@@ -48,6 +50,8 @@ The narrative culminates in a summary of **Key Insights** derived from these ana
 
 3.  **Hotkeys**
 **Ctrl + R** (Windows/Linux) or **Cmd + R** (Mac): Restores all filters to their default state.
+
+4.  For optimal viewing and interactivity, the visuals are designed for a screen resolution of **1350 x 680 pixels**, and we strongly recommend using full-screen mode.
 
 
 ## 🛠️ Tools & Technologies
