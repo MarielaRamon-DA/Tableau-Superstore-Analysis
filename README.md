@@ -1,12 +1,12 @@
-# Project Title: Superstore Sales & Profitability Analysis with Tableau
+# 💰 Superstore Performance Analysis 💰
 
 ## 🚀 Overview
 
-This repository showcases a comprehensive Business Intelligence project developed using Tableau, centered on the foundational Superstore dataset. The goal is to transform raw sales data into actionable insights for strategic decision-making, focusing on performance, profitability, and customer behavior.
+This repository showcases a comprehensive Business Intelligence project developed using **TABLEAU**, centered on the foundational Superstore dataset. The goal is to transform raw sales data into actionable insights for strategic decision-making, focusing on sales, profitability, and customer behavior.
 
 ## 📊 Project Design
 
-This project includes the following interactive Tableau visualizations, designed for various business stakeholders:
+This project includes the following interactive **Tableau visualizations** as deriverables, designed for various business stakeholders:
 
 1.  **Net Sales & Profit Performance Overview Dashboard:**
     * **Description:** This high-level executive dashboard offers a comprehensive view of `Net Sales` and `Profit` performance. It presents **diverse trend charts, including forecasting scenarios**, analyzed across **State Level, Product Category, and Sub-Category**. Primarily **oriented towards Sales Department stakeholders**, it serves as an instrument to **show and explore the critical divergence between sales growth and profitability specifically observed in November-December 2014**, providing a clear overview for strategic discussions.
