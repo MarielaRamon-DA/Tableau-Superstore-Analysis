@@ -1,85 +1,49 @@
-# 💰 Superstore Performance Analysis 💰
-
+# 💰 Superstore Performance Analysis
 ## 🚀 Overview
-
-This repository showcases a comprehensive Business Intelligence project developed using **TABLEAU**, centered on the foundational Superstore dataset. The goal is to transform raw sales data into actionable insights for strategic decision-making, focusing on sales, profitability, and customer behavior.
-
-## 📊 Project Design
-
-This project includes the following interactive **Tableau visualizations** as deriverables, designed for various business stakeholders:
-
-1.  **Net Sales & Profit Performance Overview Dashboard:**
-    * **Description:** This high-level executive dashboard offers a comprehensive view of `Net Sales` and `Profit` performance. It presents **diverse trend charts, including forecasting scenarios**, analyzed across **State Level, Product Category, and Sub-Category**. Primarily **oriented towards Sales Department stakeholders**, it serves as an instrument to **show and explore the critical divergence between sales growth and profitability specifically observed in November-December 2014**, providing a clear overview for strategic discussions.
-      
-    * **View Live on Tableau Public:** [View Live](https://public.tableau.com/views/Superstore_DashboardNetSalesandProfitPerformance/NetSalesProfitPerformanceOverview?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-          
-2.  **Customer Performance Dashboard:**
-    * **Description:** This dashboard provides an in-depth exploration of customer behavior and value, primarily **intended for Marketing Department stakeholders**. It features **RFM (Recency, Frequency, Monetary) analysis** to segment customers, revealing their purchasing patterns, engagement levels, and overall profitability. This allows for the development of targeted marketing campaigns, customer retention strategies, and identification of high-value segments.
-      
-    * **View Live on Tableau Public:** [View Live](https://public.tableau.com/views/CustomerRFMAnalysisDashboard/CustomerRFMAnalysis?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-
-3.   **Superstore Data Story**
-     * **Description:** An interactive narrative that guides users through a multi-layered analytical design, shifting **from high-level performance to granular detail**. The story is structured around four core analytical pillars:
-
-         * **Hierarchical Performance Decomposition:** Establishing **Sales & Profit trends** across **Location and Product hierarchies**.
-         * **Root Cause Analysis & Profitability Assessment:** A deep-dive into underperformance patterns linked to **different views combination** and  **Customer Satisfaction**.
-         * **Interactive Customer Strategy & Segment Analysis:** Utilizing key metrics (**Profit Margin, Discount, Returns**), Customer Performance KPI's, and scenarios (**Location, Product**) to measure segment performance and determine **Customer Expansion**.
-         * **Revenue Efficiency & Financial Health Assessment:** The final assessment of operational efficiency and financial health.
-  
-      * The narrative culminates in a summary of **Key Insights** derived from these analytical pillars, providing actionable, data-driven **Recommendations** for strategic business impact.
-
-      * **View Live on Tableau Public:** [View Live](https://public.tableau.com/views/SuperstorePerformanceAnalysis_17562391489100/SuperstorePerformanceAnalysis?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-    
+This repository features a comprehensive Business Intelligence project developed in **Tableau**. It transforms raw Superstore data into strategic assets, identifying the critical drivers behind sales trends, profitability erosion, and customer lifecycle value.
+## 📊 Project Deliverables
+Three interactive deliverables designed for cross-departmental stakeholders:
+1. **Net Sales & Profit Performance Dashboard**
+* **Strategic Focus:** Visualizes the "Profit-Sales Divergence" specifically observed in Q4 2014.
+* **Target Audience:** Sales & Executive Leadership.
+* **[View Live on Tableau Public](https://public.tableau.com/views/Superstore_DashboardNetSalesandProfitPerformance/NetSalesProfitPerformanceOverview?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)**
+2. **Customer Performance Dashboard**
+* **Strategic Focus:** Employs **RFM Analysis** to segment the customer base by engagement and profitability.
+* **Target Audience:** Marketing & Retention Teams.
+* **[View Live on Tableau Public](https://public.tableau.com/views/CustomerRFMAnalysisDashboard/CustomerRFMAnalysis?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)**
+3. **Superstore Data Story**
+* **Strategic Focus:** A multi-layered narrative that deconstructs performance from high-level trends down to root-cause assessments of revenue efficiency and financial health.
+* **[View Live on Tableau Public](https://public.tableau.com/views/SuperstorePerformanceAnalysis_17562391489100/SuperstorePerformanceAnalysis?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)**
 ## 📋 Project Specifications
-
-1.  **Data Preparation**
-    * The original database was clean, with all data preparation performed in Google Sheets. A new field, IsReturned, was added by cross-referencing returned items from a separate    sheet. To ensure an accurate representation of revenue, the Net Sales field was calculated to represent the final revenue after subtracting both returns and any dollar discounts. The Order Date field was split into separate fields for analysis. The prepared data was then connected directly to Tableau for visualization.
-
-    * Due to the lack of specific cost measures in the database, such as cost of shipment or storage, a general term for **COGS** was used in the **Critical Divergence Profit-Net Sales Dashboard for November and December of 2014**. For this analysis, COGS was inferred directly from the available data by subtracting profit from Net Sales, as returns and discounts were analyzed separately.
-
-2.  **RFM Analysis Ranges**
-    * **The RFM value ranges (High, Medium, Low)** were determined by dividing customers into three groups based on the middle points between quartiles, reflecting the distribution of the data.
-
-    * For each case of the **RFM analysis**, the following measures were used for the quartile calculations:
-
-         **Recency**: The number of days since a customer's last purchase.
-
-         **Frequency**: The total number of orders a customer has made.
-
-         **Monetary Value**: The total profit generated from a customer's purchases.
-
-3.  **Hotkeys**
-**Ctrl + R** (Windows/Linux) or **Cmd + R** (Mac): Restores all filters to their default state.
-
-4.  For optimal viewing and interactivity, the visuals are designed for a screen resolution of **1350 x 680 pixels**, and we strongly recommend using full-screen mode.
-
+1. **Data Engineering & Preparation**
+* Cleaned and transformed using Google Sheets.
+* Feature Engineering: Created `IsReturned` via cross-referencing and defined `Net Sales` as revenue post-returns and discounts.
+* COGS Proxy: In the absence of direct cost metrics, COGS was derived from the delta between Net Sales and Profit to isolate operational efficiency.
+2. **RFM Methodology**
+* Customers were segmented into High, Medium, and Low tiers using quartile-based distribution.
+* **Recency:** Days since last transaction.
+* **Frequency:** Total order volume.
+* **Monetary:** Total profit contribution per customer.
+3. **User Interface Tips**
+* **Reset Filters:** Use `Ctrl + R` (Windows) or `Cmd + R` (Mac).
+* **Optimization:** Designed for **1350 x 680** resolution; full-screen mode recommended.
 ## 💡 Strategic Insights
 ### 1. The Growth-Profitability Paradox
-While sales show an upward trend, the business faces a **critical contraction in profitability**. This is fueled by eroding margins and a breakdown in cost efficiency observed since 2014.
-### 2. Strategic Sales Misalignment
-The business relies on a **reactive sales strategy** fueled by aggressive discounting and reactive pricing. This has created a "Profitability Paradox" where the most populated customer segments are the least profitable.
-
+Consistent sales growth masks a **structural decline in efficiency**. Post-2014 data shows that while volume is increasing, margins are eroding due to rising returns and diminishing cost-to-revenue synergy.
+### 2. Reactive Strategy Risks
+Profitability is undermined by a reliance on aggressive, reactive discounting. This creates a cycle where high-volume segments (Consumer) are significantly less profitable than lower-volume, high-value segments (Corporate/Home Office).
 ## 🎯 Recommendations
-### 1. Pivot to Profit-Centric Sales
-* **Incentivize Margin:** Shift sales team incentives from volume-based quotas to profitability-based quotas.
-* **Optimize Placement:** Feature high-margin products prominently in marketing campaigns and website placement.
-### 2. Targeted Policy Reform
-* **Discount Control:** Revise pricing and discount policies specifically for states with chronic negative profit (e.g., Texas, Illinois) and underperforming subcategories (e.g., Binders, Tables).
-* **Return Management:** Implement stricter policies or process improvements to reduce the increasing trend of returns, which is a primary driver of profit erosion.
-### 3. Customer Retention and Expansion
-* **Prioritize High-Profit Segments:** Focus on retaining Corporate and Home Office segments while converting the less profitable Consumer segment.
-* **Market Penetration:** Leverage the high concentration of customers in key states to fuel a more structured regional expansion strategy.
-
+### 1. Shift to Profit-Centric Incentives
+Transition sales targets from gross volume to **profitability quotas**, encouraging the promotion of high-margin product categories.
+### 2. Targeted Policy Optimization
+Address regional "Profit Holes" by revising discount thresholds in high-loss states (e.g., Texas, Illinois) and optimizing return policies for underperforming subcategories like Binders and Tables.
+### 3. High-Value Segment Retention
+Prioritize retention resources for the Corporate and Home Office segments while implementing a "Value-Up" strategy to convert the Consumer segment into a profitable cohort.
 ## 🛠️ Tools & Technologies
-
-* **Data Visualization:** Tableau Desktop / Tableau Public
-* **Data Source:** Superstore Sample Dataset (included with Tableau)
+* **Visualization:** Tableau Desktop / Public
+* **Data Prep:** Google Sheets
 * **Version Control:** Git / GitHub
-
-
-## 📧 Connect with Me
-
-* **Tableau Public Profile:** [(https://public.tableau.com/app/profile/mariela.ramon.corria)]
-* **LinkedIn:** [www.linkedin.com/in/mariela-ramon-6b368732b]
-* **Email:** [marielaramon7107@gmail.com]
-
+## 📧 Connect
+* **Tableau Public:** [Mariela Ramon Corria](https://public.tableau.com/app/profile/mariela.ramon.corria)
+* **LinkedIn:** [Mariela Ramon](https://www.linkedin.com/in/mariela-ramon-6b368732b)
+* **Email:** marielaramon7107@gmail.com
