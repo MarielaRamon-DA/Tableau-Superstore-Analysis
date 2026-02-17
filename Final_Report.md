@@ -1,5 +1,5 @@
-## 📂 Final Project: Superstore Sales & Customer Strategic Analysis
-### 1. Business Task (Ask)
+# 📂 Final Project: Superstore Sales & Customer Strategic Analysis
+## 1. Business Task (Ask)
 
 **The objective of this analysis** is to evaluate Superstore’s performance across a 4-year horizon (2011–2014) to establish a data-driven roadmap for 2015. This project treats the data not just as a series of transactions, but as a Trading Lifecycle that requires a balance between volume and fiscal health.
 
@@ -22,8 +22,8 @@ To ensure the insights are actionable across the organization, the project provi
 |**Board of Directors** | Strategic Data Story (2014-2015) | Present the financial narrative required to approve the 2015 budget and strategic pivot. |
 |**Technical Lead** | Final Analytical Report | Document the methodology, midpoint calculations, and data integrity for peer review. |
 
-### 2. Prepare (Data Integrity & Governance)
-**Data Storage & Organization**
+## 2. Prepare (Data Integrity & Governance)
+### Data Storage & Organization
 
 **Primary Source:** The dataset was sourced from the Tableau Public Sample Data Repository.
 
@@ -31,29 +31,38 @@ To ensure the insights are actionable across the organization, the project provi
 
 **Direct Access Link:**  (Historical Archive).
 
-**Local Repository:** A copy of this .csv file is stored in the /data/raw/ directory of this GitHub repository to ensure the reproducibility of the 2015 Strategic Audit.
+**Local Repository:** A copy of this .csv file is stored in the **/data/raw/** directory of this GitHub repository to ensure the reproducibility of the 2015 Strategic Audit.
 
-**Time Horizon:** 4 years of transactional data (January 1, 2011 – December 31, 2014).
+**Time Horizon:** 4 years of transactional data **(January 1, 2011 – December 31, 2014)**.
 
-**Scope:** 9,994 unique transaction rows covering the United States market.
-The data is organized in Long Format. Each row represents a unique Transaction ID per Product, allowing for granular time-series and categorical analysis.
+The dataset consists of a single spreadsheet organized into three relational sheets. The data is organized in Long Format.
 
-**Data Architecture (Variables)**
-The dataset follows a denormalized flat-file structure organized into five three primary dimensions.
+**1. Returns**: A relational table used to audit transaction success. It contains two columns:
 
-**1. Temporal Dimension (The "When")**
-Key Variables: Order Date, Ship Date.
+`Returned`: A string indicator ('Yes').
 
-**2. Geographic Dimension (The "Where")**
-Key Variables: Country, Region, State, City, Postal Code.
+`Order ID`: The unique identifier used to link returns to the 'OrdersClean' sheet.
 
-**3. Categorical Dimension (The "What")**
-Key Variables: Category, Sub-Category, Product Name.
+**2. People**: A secondary reference table defining regional governance. It contains:
 
-In addition to the dimensions above, the database contains **the Customer Segment**, **the shipping mode**, and the **Quantitative Measures** (the Facts) that we use for our calculations:
-**Financial Facts:** Sales, Quantity, Discount, Profit.
+`Person`: The Regional Manager (Stakeholder) responsible for the area.
 
-**Bias, Credibility, and Integrity (ROCCC Analysis)**
+`Region`: The geographic territory (East, West, Central, South).
+
+**3. OrdersClean**: The primary transaction table containing **9,994 unique records** covering the United States market. Each row represents a unique Transaction ID per Product, allowing for granular time-series and categorical analysis. It follows a denormalized flat-file structure organized into **three primary dimensions**.
+
+* **1. Temporal Dimension (The "When")**
+   Key Variables: `Order Date`, `Ship Date`.
+
+* **2. Geographic Dimension (The "Where")**
+   Key Variables: `Country`, `Region`, `State`, `City`, `Postal Code`.
+
+* **3. Categorical Dimension (The "What")**
+   Key Variables: `Category`, `Sub-Category`, `Product Name`.
+
+In addition to the dimensions above, the database contains the `Customer Segment`, the `shipping mode`, and the **Quantitative Measures** (the Facts) that we use for our calculations: **Financial Facts:** `Sales`, `Quantity`, `Discount`, `Profit`.
+
+### Bias, Credibility, and Integrity (ROCCC Analysis)
 
 To verify the data’s suitability for a strategic audit, I assessed it against the ROCCC standards:
 
@@ -67,7 +76,7 @@ To verify the data’s suitability for a strategic audit, I assessed it against 
 
 **Cited:** Sourced from public business data repositories.
 
-**Licensing, Privacy, & Security**
+### Licensing, Privacy, & Security
 
 **Licensing:** Open-source public data.
 
@@ -75,53 +84,24 @@ To verify the data’s suitability for a strategic audit, I assessed it against 
 
 **Accessibility:** All files are hosted in this GitHub repository for transparency and peer review.
 
-**Integrity Verification**
+### Integrity Verification
 I verified the data integrity by performing a Cross-Field Audit:
 
-**Mathematical Consistency:** Verified that (Sales - Cost) = Profit and checked for anomalies in the Discount column.
+**Mathematical Consistency:** Checked for anomalies in the Discount column.
 
 **Date Alignment:** Ensured all Order Dates fall within the 2011–2014 range with no gaps in the 48-month period.
 
 **Deduplication:** Confirmed no duplicate Row IDs were present.
 
-**Alignment with Business Questions**
+### Alignment with Business Questions
 This data provides the raw financial metrics (Sales/Profit) needed to answer the Financial Integrity question and the customer-level transactional history required to calculate the RFM midpoints for behavioral analysis.
 
-**Data limitations**
+### Data limitations
 **1. Absence of COGS (Cost of Goods Sold)**
 While the dataset provides a Profit column, it lacks a dedicated COGS or Unit Cost field.
 
 **Impact:** We cannot perform a Gross Margin vs. Net Margin analysis. We must assume the Profit column is a pre-calculated Net Profit, which limits our ability to see exactly where production costs end and operational costs begin.
 
-## 3. Process (Data Cleaning & Transformation)
-
-### **Tools & Rationale**
-* **Google Sheets:** Used as the primary ETL tool for row-level cleaning, relational logic, and calculating core financial metrics in the `OrdersClean` sheet.
-* **Tableau:** Utilized for data profiling, metadata validation, and the creation of three distinct analytical workbooks.
-* **Reasoning:** Processing calculated fields in Google Sheets ensures a consistent "Source of Truth" that feeds into Tableau, ensuring that Net Sales and Return logic are locked before visualization.
-
-### **Detailed Cleaning & Transformation Steps (Google Sheets)**
-
-1. **Relational Logic for Returns:**
-   Instead of a standard lookup, I used a conditional counting method in the `OrdersClean` sheet to identify returned transactions.
-   * **Formula:** `=SI(CONTAR.SI(Returns!OrderId; OrdersClean!OrderId) > 0; 1; 0)`
-   * **Result:** This created the binary field **`IsReturned`**, where **1** indicates the Order ID exists in the Returns sheet, and **0** indicates a successful transaction.
-
-2. **Creation of Calculated Columns:**
-   I authored the following formulas to prepare the data for the "Identify and Diagnose" phase:
-   * **`Net_Sales`:** Calculated to reflect actual revenue after discounts and excluding returns.
-     * **Formula:** `=IF(IsReturned=0; Sales * (1-Discount); 0)`
-   * **`Profit_Margin`:** Calculated as `[Profit] / [Sales]` to identify "Value Destroyer" products (Tables and Bookcases) flagged in the 2014 audit.
-
-3. **Data Quality Audits:**
-   * **Null Value Handling:** I used the **Filter** command to scan the dataset and identified one **null value** in the "Product Description" field. I manually corrected this record to ensure categorical consistency.
-   * **Deduplication:** I used the **"Data > Data Cleanup > Remove Duplicates"** tool on the `Row ID` column. The tool confirmed that all 9,994 records are unique.
-   * **Whitespace Cleaning:** I applied **"Data > Data Cleanup > Trim Whitespace"** to ensure all text strings were clean for Tableau’s filters and mapping engine.
-
-### **Profiling & Final Verification (Tableau)**
-* **Metadata Check:** Upon connecting the Google Sheet, I verified that Tableau correctly assigned **Geographic Roles** (globe icon) to `Postal Code` and `State`.
-* **Temporal Integrity:** I confirmed that `Order Date` was recognized as a Date format (calendar icon), allowing for the analysis of the seasonal troughs in February and October.
-* **Zero-Unknown Audit:** I verified the status indicator in Tableau to ensure **"0 Unknowns"** remained after the cleaning process, confirming the dataset is "Clean and Ready."
 **2. Shipping Cost Transparency**
 In many versions of the Superstore dataset, the Shipping Cost is either missing or bundled into the profit calculation without a separate breakdown for every transaction.
 
@@ -143,23 +123,20 @@ The data provides Geography (State/City) but lacks Customer Age, Gender, or Inco
 
 1. **Relational Logic for Returns:**
    Instead of a standard lookup, I used a conditional counting method in the `OrdersClean` sheet to identify returned transactions.
-   * **Formula:** `=SI(CONTAR.SI(Returns!OrderId; OrdersClean!OrderId) > 0; 1; 0)`
+   * **Formula:** `=IF(COUNT.IF(Returns!OrderId_Range; OrdersClean!OrderId) > 0; 1; 0)`
    * **Result:** This created the binary field **`IsReturned`**, where **1** indicates the Order ID exists in the Returns sheet, and **0** indicates a successful transaction.
 
 2. **Creation of Calculated Columns:**
-   I authored the following formulas to prepare the data for the "Identify and Diagnose" phase:
-   * **`Net_Sales`:** Calculated to reflect actual revenue after discounts and excluding returns.
+      * **`Net_Sales`:** Calculated to reflect actual revenue after discounts and excluding returns.
      * **Formula:** `=IF(IsReturned=0; Sales * (1-Discount); 0)`
-   * **`Profit_Margin`:** Calculated as `[Profit] / [Sales]` to identify "Value Destroyer" products (Tables and Bookcases) flagged in the 2014 audit.
+   * **`Profit_Margin`:** Calculated as IF(Net Sales = 0; 0; `[Profit] / [Net Sales]` .
 
 3. **Data Quality Audits:**
    * **Null Value Handling:** I used the **Filter** command to scan the dataset and identified one **null value** in the "Product Description" field. I manually corrected this record to ensure categorical consistency.
    * **Deduplication:** I used the **"Data > Data Cleanup > Remove Duplicates"** tool on the `Row ID` column. The tool confirmed that all 9,994 records are unique.
    * **Whitespace Cleaning:** I applied **"Data > Data Cleanup > Trim Whitespace"** to ensure all text strings were clean for Tableau’s filters and mapping engine.
 
-
-
 ### **Profiling & Final Verification (Tableau)**
 * **Metadata Check:** Upon connecting the Google Sheet, I verified that Tableau correctly assigned **Geographic Roles** (globe icon) to `Postal Code` and `State`.
-* **Temporal Integrity:** I confirmed that `Order Date` was recognized as a Date format (calendar icon), allowing for the analysis of the seasonal troughs in February and October.
+* **Temporal Integrity:** I confirmed that `Order Date` was recognized as a Date format (calendar icon).
 * **Zero-Unknown Audit:** I verified the status indicator in Tableau to ensure **"0 Unknowns"** remained after the cleaning process, confirming the dataset is "Clean and Ready."
