@@ -93,6 +93,35 @@ While the dataset provides a Profit column, it lacks a dedicated COGS or Unit Co
 
 **Impact:** We cannot perform a Gross Margin vs. Net Margin analysis. We must assume the Profit column is a pre-calculated Net Profit, which limits our ability to see exactly where production costs end and operational costs begin.
 
+## 3. Process (Data Cleaning & Transformation)
+
+### **Tools & Rationale**
+* **Google Sheets:** Used as the primary ETL tool for row-level cleaning, relational logic, and calculating core financial metrics in the `OrdersClean` sheet.
+* **Tableau:** Utilized for data profiling, metadata validation, and the creation of three distinct analytical workbooks.
+* **Reasoning:** Processing calculated fields in Google Sheets ensures a consistent "Source of Truth" that feeds into Tableau, ensuring that Net Sales and Return logic are locked before visualization.
+
+### **Detailed Cleaning & Transformation Steps (Google Sheets)**
+
+1. **Relational Logic for Returns:**
+   Instead of a standard lookup, I used a conditional counting method in the `OrdersClean` sheet to identify returned transactions.
+   * **Formula:** `=SI(CONTAR.SI(Returns!OrderId; OrdersClean!OrderId) > 0; 1; 0)`
+   * **Result:** This created the binary field **`IsReturned`**, where **1** indicates the Order ID exists in the Returns sheet, and **0** indicates a successful transaction.
+
+2. **Creation of Calculated Columns:**
+   I authored the following formulas to prepare the data for the "Identify and Diagnose" phase:
+   * **`Net_Sales`:** Calculated to reflect actual revenue after discounts and excluding returns.
+     * **Formula:** `=IF(IsReturned=0; Sales * (1-Discount); 0)`
+   * **`Profit_Margin`:** Calculated as `[Profit] / [Sales]` to identify "Value Destroyer" products (Tables and Bookcases) flagged in the 2014 audit.
+
+3. **Data Quality Audits:**
+   * **Null Value Handling:** I used the **Filter** command to scan the dataset and identified one **null value** in the "Product Description" field. I manually corrected this record to ensure categorical consistency.
+   * **Deduplication:** I used the **"Data > Data Cleanup > Remove Duplicates"** tool on the `Row ID` column. The tool confirmed that all 9,994 records are unique.
+   * **Whitespace Cleaning:** I applied **"Data > Data Cleanup > Trim Whitespace"** to ensure all text strings were clean for Tableau’s filters and mapping engine.
+
+### **Profiling & Final Verification (Tableau)**
+* **Metadata Check:** Upon connecting the Google Sheet, I verified that Tableau correctly assigned **Geographic Roles** (globe icon) to `Postal Code` and `State`.
+* **Temporal Integrity:** I confirmed that `Order Date` was recognized as a Date format (calendar icon), allowing for the analysis of the seasonal troughs in February and October.
+* **Zero-Unknown Audit:** I verified the status indicator in Tableau to ensure **"0 Unknowns"** remained after the cleaning process, confirming the dataset is "Clean and Ready."
 **2. Shipping Cost Transparency**
 In many versions of the Superstore dataset, the Shipping Cost is either missing or bundled into the profit calculation without a separate breakdown for every transaction.
 
@@ -102,3 +131,35 @@ In many versions of the Superstore dataset, the Shipping Cost is either missing 
 The data provides Geography (State/City) but lacks Customer Age, Gender, or Income.
 
 **Impact:** Our RFM Analysis remains purely behavioral. We can tell what they did, but not who they are, which limits the Marketing Manager's ability to create demographic-based personas for 2015.
+
+## 3. Process (Data Cleaning & Transformation)
+
+### **Tools & Rationale**
+* **Google Sheets:** Used as the primary ETL tool for row-level cleaning, relational logic, and calculating core financial metrics in the `OrdersClean` sheet.
+* **Tableau:** Utilized for data profiling, metadata validation, and the creation of three distinct analytical workbooks.
+* **Reasoning:** Processing calculated fields in Google Sheets ensures a consistent "Source of Truth" that feeds into Tableau, ensuring that Net Sales and Return logic are locked before visualization.
+
+### **Detailed Cleaning & Transformation Steps (Google Sheets)**
+
+1. **Relational Logic for Returns:**
+   Instead of a standard lookup, I used a conditional counting method in the `OrdersClean` sheet to identify returned transactions.
+   * **Formula:** `=SI(CONTAR.SI(Returns!OrderId; OrdersClean!OrderId) > 0; 1; 0)`
+   * **Result:** This created the binary field **`IsReturned`**, where **1** indicates the Order ID exists in the Returns sheet, and **0** indicates a successful transaction.
+
+2. **Creation of Calculated Columns:**
+   I authored the following formulas to prepare the data for the "Identify and Diagnose" phase:
+   * **`Net_Sales`:** Calculated to reflect actual revenue after discounts and excluding returns.
+     * **Formula:** `=IF(IsReturned=0; Sales * (1-Discount); 0)`
+   * **`Profit_Margin`:** Calculated as `[Profit] / [Sales]` to identify "Value Destroyer" products (Tables and Bookcases) flagged in the 2014 audit.
+
+3. **Data Quality Audits:**
+   * **Null Value Handling:** I used the **Filter** command to scan the dataset and identified one **null value** in the "Product Description" field. I manually corrected this record to ensure categorical consistency.
+   * **Deduplication:** I used the **"Data > Data Cleanup > Remove Duplicates"** tool on the `Row ID` column. The tool confirmed that all 9,994 records are unique.
+   * **Whitespace Cleaning:** I applied **"Data > Data Cleanup > Trim Whitespace"** to ensure all text strings were clean for Tableau’s filters and mapping engine.
+
+
+
+### **Profiling & Final Verification (Tableau)**
+* **Metadata Check:** Upon connecting the Google Sheet, I verified that Tableau correctly assigned **Geographic Roles** (globe icon) to `Postal Code` and `State`.
+* **Temporal Integrity:** I confirmed that `Order Date` was recognized as a Date format (calendar icon), allowing for the analysis of the seasonal troughs in February and October.
+* **Zero-Unknown Audit:** I verified the status indicator in Tableau to ensure **"0 Unknowns"** remained after the cleaning process, confirming the dataset is "Clean and Ready."
