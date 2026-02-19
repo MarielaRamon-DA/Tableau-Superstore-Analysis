@@ -22,7 +22,7 @@ To ensure the insights are actionable across the organization, the project provi
 |**Board of Directors** | Strategic Data Story (2014-2015) | Present the financial narrative required to approve the 2015 budget and strategic pivot. |
 |**Technical Lead** | Final Analytical Report | Document the methodology, midpoint calculations, and data integrity for peer review. |
 
-## 2. Prepare (Data Integrity & Governance)
+## 2. Data Sources Description (Prepare) 
 ### Data Storage & Organization
 
 **Primary Source:** The dataset was sourced from the Tableau Public Sample Data Repository.
@@ -112,7 +112,7 @@ The data provides Geography (State/City) but lacks Customer Age, Gender, or Inco
 
 **Impact:** Our RFM Analysis remains purely behavioral. We can tell what they did, but not who they are, which limits the Marketing Manager's ability to create demographic-based personas for 2015.
 
-## 3. Process (Data Cleaning & Transformation)
+## 3. Data Cleaning & Manipulation (Process) 
 
 ### **Tools & Rationale**
 * **Google Sheets:** Used as the primary ETL tool for row-level cleaning, relational logic, and calculating core financial metrics in the `OrdersClean` sheet.
@@ -140,3 +140,59 @@ The data provides Geography (State/City) but lacks Customer Age, Gender, or Inco
 * **Metadata Check:** Upon connecting the Google Sheet, I verified that Tableau correctly assigned **Geographic Roles** (globe icon) to `Postal Code` and `State`.
 * **Temporal Integrity:** I confirmed that `Order Date` was recognized as a Date format (calendar icon).
 * **Zero-Unknown Audit:** I verified the status indicator in Tableau to ensure **"0 Unknowns"** remained after the cleaning process, confirming the dataset is "Clean and Ready."
+
+## 4. Analysis Summary (Analyze)
+
+###  Strategic Data Organization
+
+The analytical phase was organized around three pillars as follows. These interactive visualizations leverage Tableau’s native resources to facilitate a deep-dive tailored to the specific interests of the stakeholders identified in Section 1, ensuring each business question is answered through a specialized lens.
+
+#### **Pillar 1: Sales & Profit Performance Dashboard**
+A 360-degree view of business health was established, prioritizing **Functional Interactivity** to allow for the monitoring of performance across the 2011–2014 period.
+
+* **Hierarchical Structuring:** Custom hierarchies were defined for **Location** (`Country` > `Region` > `State` > `City`) and **Category** (`Category` > `Sub-Category` > `Product`). This structure was implemented to allow for deep-dive root cause analysis of underperforming areas.
+* **Global & Parametric Control:** * **Global Filter:** The `Order Date` was established to ensure temporal consistency across all visualizations.
+    * **Dynamic Selectors:** Through the use of `Select Filter View` and `Trend Chart Selector` parameters, the workspace can be toggled between geographic/categorical views and switched between Growth, Efficiency, and Predictive (Forecasting) metrics.
+* **Executive KPIs:** Real-time benchmarks were integrated into the dashboard footer, including: `Total Net Sales`, `Profit`, `AOV`, `Net Sales to Gross Sales Ratio`, and `Direct Cost to Net Sales Ratio`.
+
+#### **Pillar 2: Customer RFM Analysis Dashboard**
+Transactional data was transformed into behavioral segments (such as Champions, Hibernating, and At Risk) to serve marketing stakeholders.
+
+* **Strategic Purpose:** This segmentation was designed to move beyond standard demographics (`Consumer`, `Corporate`, `Home Office`) to reveal the **behavioral health** of the customer base. This enables the strategic allocation of the 2015 budget by identifying which "At Risk" customers require re-engagement.
+* **Interactive Filtering:** * **Segment Bar Graphs:** Customer distribution is visualized by Marketing Segment and specific RFM combinations. 
+    * **Profit-Driven Heat Map:** Both bar graphs act as filters for a centralized Heat Map. A 4th dimension—**Profit**—was introduced via color coding to identify whether high-spending individuals are contributing positively to the bottom line.
+
+#### **Pillar 3: The Data Story (Executive Focus)**
+Findings from the preceding dashboards were synthesized into a **Tableau Story**. The narrative was focused on the 2014 performance challenges to provide evidence-based recommendations aimed at mitigating financial issues for the 2015 fiscal year.
+
+### Analytical Logic & Calculated Fields
+
+To transition from raw data to actionable insights, several custom calculations were authored within Tableau. These fields were categorized to support Descriptive, Diagnostic, and Predictive analysis, ensuring a rigorous evaluation of business efficiency and stakeholder needs.
+
+### **Performance KPI Framework & Efficiency Metrics**
+A baseline for business health was established using specific metrics designed to quantify operational efficiency and the impact of returns:
+
+* **Net Sales to Gross Sales Ratio:** This metric was implemented to measure the efficiency of finalized transactions after accounting for returns:
+  `SUM([Net Sales]) / SUM([Sales])`
+* **Direct Cost to Revenue Ratio:** This field was developed to visualize the weight of operational costs against realized revenue:
+  `(SUM([Net Sales]) - SUM([Profit])) / SUM([Net Sales])`
+* **Sales Weighted Average Discount:** To understand the true impact of pricing strategies, a weighted calculation was applied to avoid distortion by low-volume transactions:
+  `IF SUM([Net Sales]) != 0 THEN SUM([Discount] * [Sales]) / SUM([Net Sales]) ELSE 0 END`
+* **Average Order Value (AOV) & Unique Customers:** These were utilized to monitor transaction quality and provide a baseline for behavioral analysis using `COUNTD([Customer Name])`.
+
+### **Statistical Validation and Calibration of RFM Thresholds**
+To ensure the behavioral segmentation was grounded in the actual distribution of the 2011-2014 data, a descriptive statistical summary was performed.
+
+* **Methodology:** The distribution was analyzed using **Quartile Measures**. For the `Monetary_Value` dimension, the benchmarks identified were: **Lower Quartile (Q1): 864**, **Median (Q2): 1,736**, and **Upper Quartile (Q3): 3,026**.
+* **Threshold Calibration:** Boundary values for the `High`, `Medium`, and `Low` ranges were derived from the midpoints between these quartiles and further calibrated to align with data density. For instance, the **High** threshold for `Monetary_Value` was set at **2,380**, while the **Medium** threshold was adjusted to **1,050** to better capture emerging customer clusters.
+
+### **Behavioral Segmentation (RFM Logic)**
+A behavioral model was constructed to transform transactional history into actionable segments. This was achieved through a multi-conditional calculation:
+
+* **RFM Score Concatenation:** A combined string was generated to visualize the full behavioral profile: 
+  `[Recency_Range] + " | " + [Frequency_Range] + " | " + [Monetary_Value_Range]`
+* **Customer Segment Logic:** Customers were assigned to groups such as **Champions**, **Loyal Customers**, and **At-Risk**. This allows for the strategic allocation of the 2015 budget by identifying which groups require re-engagement and which drive the highest profitability.
+
+### **Diagnostic & Predictive Analysis**
+* **Growth Metrics:** `Monthly` and `Quarterly Revenue Growth Rates` were applied to identify volatility during seasonal troughs (February and October).
+* **Time-Series Forecasting:** Tableau’s native exponential smoothing models were applied to generate a **1-year forecast**, providing stakeholders with a statistical baseline for 2015 expectations.
