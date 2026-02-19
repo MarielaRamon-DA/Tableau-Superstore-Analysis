@@ -196,3 +196,22 @@ A behavioral model was constructed to transform transactional history into actio
 ### **Diagnostic & Predictive Analysis**
 * **Growth Metrics:** `Monthly` and `Quarterly Revenue Growth Rates` were applied to identify volatility during seasonal troughs (February and October).
 * **Time-Series Forecasting:** Tableau’s native exponential smoothing models were applied to generate a **1-year forecast**, providing stakeholders with a statistical baseline for 2015 expectations.
+
+### **Trends, Patterns, and Relationships**
+
+This section documents the observed trajectories and mathematical correlations identified across the 2011–2014 period. These data points establish the baseline for the subsequent diagnostic findings.
+
+#### **Temporal and Seasonality Trends**
+* **Consistent Upward Trend:** A baseline upward trajectory exists in global sales and profit from 2011 to 2014. Growth is concentrated in the **second semester**, specifically in **Q4**.
+* **Fixed Seasonality:** Peaks occur in **March, September, and November**, with recurring troughs in **February and October**. 
+* **General Upward Trend in Returns and Discounts:** Both variables show a consistent increase, with peaks aligned with sales highpoints in **March, September, and November**. 
+* **2014 Returns Surge:** Returns experienced a significant increase of **109%** during 2014 compared to previous periods.
+* **Unsustainable YoY Growth Tendency:** The sales trajectory exhibits "Growth Exhaustion". Revenue peaks are followed by immediate, deep troughs, resulting in a pattern of short-lived bursts and operational fatigue.
+* **The 2014 Contraction:** A structural anomaly was identified in the 2014 growth rate. Unlike the 2011–2013 period, the final year presents a contraction where traditional seasonal cycles failed to yield historical momentum.
+
+#### **Key Variable Relationships (YoY Growth Analysis)**
+* **Profit Hypersensitivity (YoY Growth Rate):** Direct relationship between the monthly YoY growth rate of Sales and Profit reveals extreme sensitivity. Decreases in sales lead to disproportionate collapses in profit, while significant sales increases generate exponential profit growth:
+* **2014 Critical Contraction:** A specific decoupling occurred at the end of 2014. While September maintained a positive growth relationship (12% Sales / 21% Profit), the subsequent months showed a breakdown in efficiency.
+* **Reverse Sales-Profit Relationship (Nov-Dec 2014):** A reverse correlation was detected exclusively during November and December 2014. In this specific window, the effort to drive volume resulted in a mathematical inverse where the increase in sales did not translate into a proportional increase in utility.
+* **Slope of Negative Efficiency (2014):** The regression analysis for 2014 confirms a **negative efficiency slope**, proving that additional sales volume during this year resulted in a net reduction of business utility.
+* **CLV and Ratio Decay:** A consistent **downward trend in CLV** was identified across all years. Simultaneously, 2014 shows a sharp drop in **Average Order Value (AOV)** and the **Net Sales to Gross Sales Ratio**.
