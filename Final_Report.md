@@ -23,7 +23,7 @@ To ensure the insights are actionable across the organization, the project provi
 |**Technical Lead** | Final Analytical Report | Document the methodology, midpoint calculations, and data integrity for peer review. |
 
 ## 2. Data Sources Description (Prepare) 
-### Data Storage & Organization
+### 2.1 Data Storage & Organization
 
 **Primary Source:** The dataset was sourced from the Tableau Public Sample Data Repository.
 
@@ -62,7 +62,7 @@ The dataset consists of a single spreadsheet organized into three relational she
 
 In addition to the dimensions above, the database contains the `Customer Segment`, the `shipping mode`, and the **Quantitative Measures** (the Facts) that we use for our calculations: **Financial Facts:** `Sales`, `Quantity`, `Discount`, `Profit`.
 
-### Bias, Credibility, and Integrity (ROCCC Analysis)
+### 2.2 Bias, Credibility, and Integrity (ROCCC Analysis)
 
 To verify the data’s suitability for a strategic audit, I assessed it against the ROCCC standards:
 
@@ -76,7 +76,7 @@ To verify the data’s suitability for a strategic audit, I assessed it against 
 
 **Cited:** Sourced from public business data repositories.
 
-### Licensing, Privacy, & Security
+### 2.3 Licensing, Privacy, & Security
 
 **Licensing:** Open-source public data.
 
@@ -84,7 +84,7 @@ To verify the data’s suitability for a strategic audit, I assessed it against 
 
 **Accessibility:** All files are hosted in this GitHub repository for transparency and peer review.
 
-### Integrity Verification
+### 2.4 Integrity Verification
 I verified the data integrity by performing a Cross-Field Audit:
 
 **Mathematical Consistency:** Checked for anomalies in the Discount column.
@@ -93,10 +93,10 @@ I verified the data integrity by performing a Cross-Field Audit:
 
 **Deduplication:** Confirmed no duplicate Row IDs were present.
 
-### Alignment with Business Questions
+#### Alignment with Business Questions
 This data provides the raw financial metrics (Sales/Profit) needed to answer the Financial Integrity question and the customer-level transactional history required to calculate the RFM midpoints for behavioral analysis.
 
-### Data limitations
+### 2.5 Data limitations
 **1. Absence of COGS (Cost of Goods Sold)**
 While the dataset provides a Profit column, it lacks a dedicated COGS or Unit Cost field.
 
@@ -114,12 +114,12 @@ The data provides Geography (State/City) but lacks Customer Age, Gender, or Inco
 
 ## 3. Data Cleaning & Manipulation (Process) 
 
-### **Tools & Rationale**
+### 3.1 Tools & Rationale
 * **Google Sheets:** Used as the primary ETL tool for row-level cleaning, relational logic, and calculating core financial metrics in the `OrdersClean` sheet.
 * **Tableau:** Utilized for data profiling, metadata validation, and the creation of three distinct analytical workbooks.
 * **Reasoning:** Processing calculated fields in Google Sheets ensures a consistent "Source of Truth" that feeds into Tableau, ensuring that Net Sales and Return logic are locked before visualization.
 
-### **Detailed Cleaning & Transformation Steps (Google Sheets)**
+### 3.2 Detailed Cleaning & Transformation Steps (Google Sheets)
 
 1. **Relational Logic for Returns:**
    Instead of a standard lookup, I used a conditional counting method in the `OrdersClean` sheet to identify returned transactions.
@@ -136,14 +136,14 @@ The data provides Geography (State/City) but lacks Customer Age, Gender, or Inco
    * **Deduplication:** I used the **"Data > Data Cleanup > Remove Duplicates"** tool on the `Row ID` column. The tool confirmed that all 9,994 records are unique.
    * **Whitespace Cleaning:** I applied **"Data > Data Cleanup > Trim Whitespace"** to ensure all text strings were clean for Tableau’s filters and mapping engine.
 
-### **Profiling & Final Verification (Tableau)**
+#### **Profiling & Final Verification (Tableau)**
 * **Metadata Check:** Upon connecting the Google Sheet, I verified that Tableau correctly assigned **Geographic Roles** (globe icon) to `Postal Code` and `State`.
 * **Temporal Integrity:** I confirmed that `Order Date` was recognized as a Date format (calendar icon).
 * **Zero-Unknown Audit:** I verified the status indicator in Tableau to ensure **"0 Unknowns"** remained after the cleaning process, confirming the dataset is "Clean and Ready."
 
 ## 4. Analysis Summary (Analyze)
 
-###  Strategic Data Organization
+### 4.1 Strategic Data Organization
 
 The analytical phase was organized around three pillars as follows. These interactive visualizations leverage Tableau’s native resources to facilitate a deep-dive tailored to the specific interests of the stakeholders identified in Section 1, ensuring each business question is answered through a specialized lens.
 
@@ -165,11 +165,11 @@ Transactional data was transformed into behavioral segments (such as Champions, 
 #### **Pillar 3: The Data Story (Executive Focus)**
 Findings from the preceding dashboards were synthesized into a **Tableau Story**. The narrative was focused on the 2014 performance challenges to provide evidence-based recommendations aimed at mitigating financial issues for the 2015 fiscal year.
 
-### Analytical Logic & Calculated Fields
+### 4.2 Analytical Logic & Calculated Fields
 
 To transition from raw data to actionable insights, several custom calculations were authored within Tableau. These fields were categorized to support Descriptive, Diagnostic, and Predictive analysis, ensuring a rigorous evaluation of business efficiency and stakeholder needs.
 
-### **Performance KPI Framework & Efficiency Metrics**
+#### **Performance KPI Framework & Efficiency Metrics**
 A baseline for business health was established using specific metrics designed to quantify operational efficiency and the impact of returns:
 
 * **Net Sales to Gross Sales Ratio:** This metric was implemented to measure the efficiency of finalized transactions after accounting for returns:
@@ -180,24 +180,24 @@ A baseline for business health was established using specific metrics designed t
   `IF SUM([Net Sales]) != 0 THEN SUM([Discount] * [Sales]) / SUM([Net Sales]) ELSE 0 END`
 * **Average Order Value (AOV) & Unique Customers:** These were utilized to monitor transaction quality and provide a baseline for behavioral analysis using `COUNTD([Customer Name])`.
 
-### **Statistical Validation and Calibration of RFM Thresholds**
+#### **Statistical Validation and Calibration of RFM Thresholds**
 To ensure the behavioral segmentation was grounded in the actual distribution of the 2011-2014 data, a descriptive statistical summary was performed.
 
 * **Methodology:** The distribution was analyzed using **Quartile Measures**. For the `Monetary_Value` dimension, the benchmarks identified were: **Lower Quartile (Q1): 864**, **Median (Q2): 1,736**, and **Upper Quartile (Q3): 3,026**.
 * **Threshold Calibration:** Boundary values for the `High`, `Medium`, and `Low` ranges were derived from the midpoints between these quartiles and further calibrated to align with data density. For instance, the **High** threshold for `Monetary_Value` was set at **2,380**, while the **Medium** threshold was adjusted to **1,050** to better capture emerging customer clusters.
 
-### **Behavioral Segmentation (RFM Logic)**
+#### **Behavioral Segmentation (RFM Logic)**
 A behavioral model was constructed to transform transactional history into actionable segments. This was achieved through a multi-conditional calculation:
 
 * **RFM Score Concatenation:** A combined string was generated to visualize the full behavioral profile: 
   `[Recency_Range] + " | " + [Frequency_Range] + " | " + [Monetary_Value_Range]`
 * **Customer Segment Logic:** Customers were assigned to groups such as **Champions**, **Loyal Customers**, and **At-Risk**. This allows for the strategic allocation of the 2015 budget by identifying which groups require re-engagement and which drive the highest profitability.
 
-### **Diagnostic & Predictive Analysis**
+#### **Diagnostic & Predictive Analysis**
 * **Growth Metrics:** `Monthly` and `Quarterly Revenue Growth Rates` were applied to identify volatility during seasonal troughs (February and October).
 * **Time-Series Forecasting:** Tableau’s native exponential smoothing models were applied to generate a **1-year forecast**, providing stakeholders with a statistical baseline for 2015 expectations.
 
-### **Trends, Patterns, and Relationships**
+### 4.3 Trends, Patterns, and Relationships
 
 This section documents the observed trajectories and mathematical correlations identified across the 2011–2014 period. These data points establish the baseline for the subsequent diagnostic findings.
 
@@ -209,9 +209,14 @@ This section documents the observed trajectories and mathematical correlations i
 * **Unsustainable YoY Growth Tendency:** The monthly sales trajectory exhibits "Growth Exhaustion". Revenue peaks are followed by immediate, deep troughs, resulting in a pattern of short-lived bursts and operational fatigue.
 * **The 2014 Contraction:** A structural anomaly was identified in the 2014 growth rate. Unlike the 2011–2013 period, the final year presents a contraction where traditional seasonal cycles failed to yield historical momentum.
 
-#### **2015 Forecasting Overview**
-* **Sales Continuity:** The Sales Forecast for 2015 maintains a positive linear trend, projecting a continued increase in volume following the historical growth pattern.
-* **Profit Margin Constraint:** The Profit Forecast indicates a much shallower growth slope than sales, projecting a continued struggle to convert high volume into significant utility indicating that without strategic intervention, the efficiency gap will persist.
+#### **2015 Forecast Overview: The Widening Efficiency Gap**
+The predictive analysis for 2015 reveals a structural divergence between revenue momentum and financial utility, signaling that the "Sales-at-all-costs" model is reaching a point of diminishing returns.
+
+* **Divergent Growth Slopes:** The forecast indicates a significant increase in the **Net Sales** slope for the second semester of 2015 compared to 2014. However, the **Profit** trajectory remains comparatively shallow. This widening gap confirms that while the business is accelerating volume, it is failing to convert that volume into proportional net profit.
+* **Predictability vs. Volatility:** * **Profit Certainty ($R^2 \approx 1.0$):** The profit tendency line shows near-perfect mathematical linearity, suggesting that under current operational conditions, the low-margin outcome is structurally "locked in." 
+    * **Sales Instability ($R^2 \approx 0.22$):** In contrast, Sales growth is becoming increasingly erratic. The wider "prediction shadow" between March and August—historically a stable period—indicates that revenue is becoming harder to predict and more expensive to secure.
+* **Operational Growth Strain:** A deeper drop in Sales thresholds at the beginning of 2015, followed by the need for a massive second-semester surge to maintain the trend, suggests an increasing reliance on aggressive, low-quality year-end tactics.
+* **Structural Volatility:** Despite the linear trend in Profit, the "range of variation" (the parallelogram shadow) inherited from 2014 persists. This confirms that the business remains vulnerable to the same high-volatility peaks and troughs that characterized the previous year's contraction.
   
 #### **Key Variable Relationships **
 * **Profit Hypersensitivity (YoY Growth Rate):** Direct relationship between the monthly YoY growth rate of Sales and Profit reveals extreme sensitivity. Decreases in sales lead to disproportionate collapses in profit, while significant sales increases generate exponential profit growth:
