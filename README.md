@@ -20,6 +20,16 @@ This project provides a suite of four strategic deliverables designed for cross-
 * **Target Audience:** Data Leadership & Project Stakeholders.
 * **[Read the Full Report](https://github.com/MarielaRamon-DA/Tableau-Superstore-Analysis/edit/main/Final_Report.md)**
 
+## 📋 Methodology: Data Analysis Lifecycle
+This project is structured around a six-phase analytical framework to ensure data-driven decision-making and technical rigor:
+
+* **Ask (Define):** Defining the business challenge and identifying the core questions that drive the analysis. This phase involves understanding stakeholder expectations and establishing clear, measurable objectives.
+* **Prepare (Collect & Describe):** Sourcing the data and performing a comprehensive technical description of the dataset. This includes evaluating data integrity using the **ROCCC** standard and documenting the metadata and variables.
+* **Process (Clean & Transform):** Executing data hygiene through cleaning, normalization, feature engineering, and documenting to ensure the dataset is accurate, consistent, and ready for advanced calculation.
+* **Analyze (Discover):** Utilizing various analytical techniques—such as **Trend Analysis**, **Forecasting**, **Statistical Modeling**, and **Behavioral Segmentation**—to identify patterns, correlations, and root causes.
+* **Share (Communicate):** Interpreting the results and translating complex data into intuitive, high-impact visualizations and narratives tailored for diverse stakeholders.
+* **Act (Recommend):** Providing evidence-based conclusions and actionable strategic recommendations to solve the initial business problem.
+  
 ## 📋 Project Specifications
 1. **Data Engineering & Preparation**
 * Cleaned and transformed using Google Sheets.
@@ -33,6 +43,7 @@ This project provides a suite of four strategic deliverables designed for cross-
 3. **User Interface Tips**
 * **Reset Filters:** Use `Ctrl + R` (Windows) or `Cmd + R` (Mac).
 * **Optimization:** Designed for **1350 x 680** resolution; full-screen mode recommended.
+
 ## 💡 Strategic Insights
 ### 1. The Growth-Profitability Paradox
 Consistent sales growth masks a **structural decline in efficiency**. Post-2014 data shows that while volume is increasing, margins are eroding due to rising returns and diminishing cost-to-revenue synergy.
