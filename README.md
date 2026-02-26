@@ -1,8 +1,9 @@
 # 💰 Superstore Performance Analysis
 ## 🚀 Overview
-This repository features a comprehensive Business Intelligence project developed in **Tableau**. It transforms raw Superstore data into strategic assets, identifying the critical drivers behind sales trends, profitability erosion, and customer lifecycle value.
+This repository features a comprehensive Business Intelligence project developed in **Tableau**. It analyzes the performance of Superstore, a US-based retail business, to identify the critical drivers behind regional sales trends, profitability erosion, and customer lifecycle value. By transforming raw market data into strategic assets, this project provides a data-driven roadmap to reverse business contraction and optimize Superstore’s operations across the US market.
+
 ## 📊 Project Deliverables
-Three interactive deliverables designed for cross-departmental stakeholders:
+This project provides a suite of four strategic deliverables designed for cross-departmental stakeholders, ranging from interactive data visualizations to a comprehensive record of the analytical process:
 1. **Net Sales & Profit Performance Dashboard**
 * **Strategic Focus:** Visualizes the "Profit-Sales Divergence" specifically observed in Q4 2014.
 * **Target Audience:** Sales & Executive Leadership.
@@ -14,6 +15,11 @@ Three interactive deliverables designed for cross-departmental stakeholders:
 3. **Superstore Data Story**
 * **Strategic Focus:** A multi-layered narrative that deconstructs performance from high-level trends down to root-cause assessments of revenue efficiency and financial health.
 * **[View Live on Tableau Public](https://public.tableau.com/views/SuperstorePerformanceAnalysis_17562391489100/SuperstorePerformanceAnalysis?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)**
+4. **Final Analysis Report** 📄
+* **Strategic Focus:** A comprehensive document recording the complete data analysis lifecycle **(Ask, Prepare, Process, Analyze, Share, Act)** to provide a detailed account of the project's evolution.
+* **Target Audience:** Data Leadership & Project Stakeholders.
+* **[Read the Full Report](https://github.com/MarielaRamon-DA/Tableau-Superstore-Analysis/edit/main/Final_Report.md)**
+
 ## 📋 Project Specifications
 1. **Data Engineering & Preparation**
 * Cleaned and transformed using Google Sheets.
