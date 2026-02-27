@@ -291,7 +291,8 @@ The widening gap between gross and net revenue points to a breakdown in operatio
 **1. Financial Integrity: Is our growth healthy?** No.
 
  📊 Sales Growth Masks Underlying Contraction
-Systemic patterns in every scenario show a consistent upward trend in sales and profit, but a fundamental contraction in 2014 YoY growth.  
+Systemic patterns in every scenario show a consistent upward trend in sales and profit, but a fundamental contraction in 2014 YoY growth. The **root cause** is a reactive sales strategy disconnected from long-term profitability. This creates a structural dependency where profit is a passive passenger of sales volume, leaving the business vulnerable to the following erosive factors:
+    * **Net Sales Contraction as a Catalyst:** The fundamental slowdown in net sales growth serves as the primary trigger for profit erosion. Without an independent margin-protection strategy, this contraction disproportionately collapses profitability. 
    * **Profitability is eroding:**. This is fueled by a contraction in sales growth and the systemic issue of returns.
    * **Efficiency is declining:** The synergy between revenue retention and direct cost efficiency broke down in 2014, indicating that growth is getting more expensive, or margins are shrinking as sales increase. This shift, combined with overall growth deceleration, signals a critical business contraction.
    * **Customer value is declining (CLV):** A Clear sign that the long-term health of your customer base is deteriorating.
