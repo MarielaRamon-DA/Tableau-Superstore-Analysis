@@ -5,7 +5,7 @@
 
 To guide the analysis, the project was framed around four critical business inquiries:
 
-**Financial Integrity: Is our growth healthy?**
+**Growth Quality Assessment: Is our current expansion generating sustainable financial and customer value?**
 
 **Diagnostic: Which specific drivers are eroding our margins and customer value?**
 
@@ -288,7 +288,7 @@ The widening gap between gross and net revenue points to a breakdown in operatio
 
 ### 6.1 Final Conclusions (The 4 Strategic Questions Answered)
 
-**1. Financial Integrity: Is our growth healthy?** No.
+### 1. Growth Quality Assessment: Is our current expansion generating sustainable financial and customer value?
 
  📊 Sales Growth Masks Underlying Contraction
 Systemic patterns in every scenario show a consistent upward trend in sales and profit, but a fundamental contraction in 2014 YoY growth. The **root cause** is a reactive sales strategy disconnected from long-term profitability. This creates a structural dependency where profit is a passive passenger of sales volume, leaving the business vulnerable to the following erosive factors:
@@ -302,7 +302,7 @@ Systemic patterns in every scenario show a consistent upward trend in sales and 
   🎯 The Most Significant Challenge: The Sales Strategy**
 The primary driver of eroding profitability and declining customer value is a fundamental disconnect between aggressive sales volume targets and long-term profit sustainability. The business's reliance on a reactive sales approach is fueled by:
 
-* **Reactive Pricing & Regional Deficits:** Competitive pressure has forced an inefficient localized pricing policy. This is most critical in **"loss-center" states** within the **Central region (notably Texas and Illinois)** and the **South (Tennessee and North Carolina)**, where discount structures fail to cover operational overhead.
+* **Reactive Pricing & State Deficits:** Competitive pressure has forced an inefficient localized pricing policy. This is most critical in **"loss-center" states** within the **Central region (notably Texas and Illinois)** and the **South (Tennessee and North Carolina)**, where discount structures fail to cover operational overhead.
 * **Structural Product-Market Misfit:** Key subcategories—specifically **Tables, Machines, Bookcases, Binders, and Supplies**—suffer from historical negative profit margins, indicating they are being used to drive volume at the expense of equity.
 * **Margin Sacrifice:** Aggressive inventory management tactics have prioritized clearing stock and meeting volume quotas, consistently sacrificing margin to maintain top-line appearances.
 * **Operational Quality Collapse:** An unsustainable **109% surge in returns**, driven by increased pressure in sales processing and fulfillment, acts as the final "value destroyer" in the transaction lifecycle.
