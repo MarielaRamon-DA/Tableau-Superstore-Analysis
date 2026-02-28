@@ -296,7 +296,8 @@ Systemic patterns in every scenario show a consistent upward trend in sales and 
      
 ### 2. Diagnostic: Which specific drivers are eroding our margins and customer value?
 
-🎯 **The Critical Challenge: The Sales Strategy Vicious Cycle:**
+🎯 **The Critical Challenge: The Sales Strategy Vicious Cycle.**
+
 The primary driver of eroding profitability and declining customer value is a fundamental disconnect between aggressive volume-based targets and long-term sustainability. This misalignment creates a **vicious cycle**: sales slowdowns prompt deeper discounts, which in turn collapse margins, perpetuating a systemic crisis. 
 
 In this structural dependency, profit becomes a "passive passenger" of sales volume, leaving the business vulnerable to the following erosive factors:
@@ -332,15 +333,11 @@ In this structural dependency, profit becomes a "passive passenger" of sales vol
 * **Leverage Technology Affinity for Segment Recovery.** Capitalize on the **Corporate and Home Office** segments' high affinity for Technology. Shift to **integrated hardware and service bundles (Maintenance & Support)** to protect margins and rescue profitability, especially during the year-end sales surge.
 * **Strategic Regional Cooperation.** Facilitate a collaborative framework where high-performing regions mentor **Central and South** managers, who have suffered the deepest contraction, through shared operational best practices.
 
----
-
 ### 📦 3.**Operational Excellence & Return Mitigation**
 *High return rates are currently **undermining the business growth**, directly contributing to the contraction of net performance.*
 
 * **Re-engineer Shipping for Complex Orders.** Implement a mandatory **Double-Validation Protocol** (Technical Checklist + Dispatch Audit). Every Corporate and Home Office order must be verified before departure to eliminate reverse logistics expenses and enhance **Customer Value**.
 * **Implement Predictive Replenishment.** Incentivize Corporate clients to adopt standardized, frequent ordering models. This reduces fulfillment complexity and stabilizes the supply chain (moving away from erratic, high-complexity manual orders).
-
----
 
 ### 📅 4. **Seasonality & Market Expansion**
 *Leverage market momentum to optimize the balance sheet and improve penetration.*
