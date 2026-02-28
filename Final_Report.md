@@ -287,7 +287,7 @@ The widening gap between gross and net revenue points to a breakdown in operatio
 
 ### 1. Growth Quality Assessment: Is our current expansion generating sustainable financial and customer value? **No.**
 
- 📊 Sales Growth Masks Underlying Contraction
+ 📊 **Sales Growth Masks Underlying Contraction:**
 Systemic patterns in every scenario show a consistent upward trend in sales and profit, but a fundamental contraction in 2014 YoY growth. 
    * **Profitability is eroding:**. This is fueled by a contraction in sales growth and the systemic issue of returns.
    * **Efficiency is declining:** The synergy between revenue retention and direct cost efficiency broke down in 2014, indicating that growth is getting more expensive, or margins are shrinking as sales increase. This shift, combined with overall growth deceleration, signals a critical business contraction.
@@ -296,7 +296,7 @@ Systemic patterns in every scenario show a consistent upward trend in sales and 
      
 ### 2. Diagnostic: Which specific drivers are eroding our margins and customer value?
 
-🎯 **The Critical Challenge: The Sales Strategy Vicious Cycle**
+🎯 **The Critical Challenge: The Sales Strategy Vicious Cycle:**
 The primary driver of eroding profitability and declining customer value is a fundamental disconnect between aggressive volume-based targets and long-term sustainability. This misalignment creates a **vicious cycle**: sales slowdowns prompt deeper discounts, which in turn collapse margins, perpetuating a systemic crisis. 
 
 In this structural dependency, profit becomes a "passive passenger" of sales volume, leaving the business vulnerable to the following erosive factors:
@@ -342,7 +342,7 @@ In this structural dependency, profit becomes a "passive passenger" of sales vol
 
 ---
 
-### 📅 5. **Seasonality & Market Expansion**
+### 📅 4. **Seasonality & Market Expansion**
 *Leverage market momentum to optimize the balance sheet and improve penetration.*
 
 * **Q4 Strategic Pivot.** Use the **Year-End sales peak** to liquidate low-margin inventory while simultaneously launching high-value technology renewal campaigns for businesses.
